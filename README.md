@@ -1,6 +1,6 @@
 # SOBRE
 
-Esse projeto é um CRUD básico para um trabalho da faculdade. Ele é feito em Ruby on Rails, e tem como objetivo organizar o estoque de um supermercado.
+Esse projeto é um CRUD básico para um trabalho da faculdade. Ele é feito em Ruby on Rails, e tem como objetivo ser uma aplicação para gerenciamento de estoque genérica e visualmente customizável.
 
 # TECNOLOGIAS
 

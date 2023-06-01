@@ -1,0 +1,14 @@
+.table-container
+  .table-information
+    %h1.table-title Lista de fornecedores de pedidos realizados em 2022
+  .table-responsive
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.col-2 Nome do fornecedor
+          %th.col-2 Telefone do fornecedor
+      %tbody
+        - @orders.each do |order|
+          %tr
+            %td= order.supplier_name
+            %td= order.supplier_phone

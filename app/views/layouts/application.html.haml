@@ -9,29 +9,41 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    %nav.navbar.navbar-expand-lg
-      %a.navbar-brand{:href => "/"} Stock.
+  .general-container
+    .crud-nav
+      .logo
+        = image_tag("logo.svg")
       #navbarSupportedContent.navbar-collapse
         %ul.navbar-nav.mr-auto
           %li.nav-item
-            %a.nav-link{:href => "/products"} Produtos
+            %a.nav-link{:href => "/products", :class => current_page?("/products") ? "active" : ""}
+              %span Produtos
           %li.nav-item
-            %a.nav-link{:href => "/categories"} Categorias
+            %a.nav-link{:href => "/categories", :class => current_page?("/categories") ? "active" : ""}
+              %span Categorias
           %li.nav-item
-            %a.nav-link{:href => "/brands"} Marcas
-          %li.nav-item
-            %a.nav-link{:href => "/suppliers"} Fornecedores
-          %li.nav-item
-            %a.nav-link{:href => "/orders"} Pedidos
-          %li.nav-item.dropdown
-            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
-              Relatórios
-            .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-              %a.dropdown-item{:href => "/reports/order_supplier_report"} Relatório 1
-              %a.dropdown-item{:href => "/reports/product_order_report"} Relatório 2
-              %a.dropdown-item{:href => "/reports/product_brand_report"} Relatório 3
-    - flash.each do |type, msg|
-      .alert.alert-info
-        = msg
-    = yield
+            %a.nav-link{:href => "/brands", :class => current_page?("/brands") ? "active" : ""}
+              %span Marcas
+    .general-content
+      .page-header
+        .search
+        .admin
+          = image_tag "user-default.webp", class: "user-icon"
+          Admin
+          = link_to image_tag("gear.svg", class: "gear-icon"), href: "/admin"
+          -# = link_to "Sair", destroy_user_session_path, method: :delete, class: "logout"
+
+      .container
+        - flash.each do |type, msg|
+          .alert.alert-info
+            = msg
+        = yield
   = render 'ajax_modal_rails/frame'
+
+:javascript
+  $(document).ready(function () {
+      $('ul.navbar-nav > li').click(function (e) {
+          $('ul.navbar-nav > li').removeClass('nav-active');
+          $(this).addClass('nav-active');
+      });
+  });

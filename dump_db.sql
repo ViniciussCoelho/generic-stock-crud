@@ -11,7 +11,7 @@ SET standard_conforming_strings = on;
 -- Drop databases (except postgres and template1)
 --
 
-DROP DATABASE "crud-market-stock_development";
+DROP DATABASE "generic-stock-crud_development";
 
 
 
@@ -125,7 +125,7 @@ GRANT CONNECT ON DATABASE template1 TO PUBLIC;
 --
 
 --
--- Database "crud-market-stock_development" dump
+-- Database "generic-stock-crud_development" dump
 --
 
 --
@@ -147,15 +147,15 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: crud-market-stock_development; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: generic-stock-crud_development; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "crud-market-stock_development" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
+CREATE DATABASE "generic-stock-crud_development" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
 
 
-ALTER DATABASE "crud-market-stock_development" OWNER TO postgres;
+ALTER DATABASE "generic-stock-crud_development" OWNER TO postgres;
 
-\connect -reuse-previous=on "dbname='crud-market-stock_development'"
+\connect -reuse-previous=on "dbname='generic-stock-crud_development'"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;

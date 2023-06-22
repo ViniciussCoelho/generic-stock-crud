@@ -10,8 +10,8 @@ bash:
 debug:
 # Para sair da tela deste comando, CTRL + P CTRL + Q
 ifeq ($(container),)
-	echo "Para container padrão crud-market-stock"
-	sudo docker attach crud-market-stock
+	echo "Para container padrão generic-stock-crud"
+	sudo docker attach generic-stock-crud
 else
 	echo "Para container customizado"
 	sudo docker attach $(container)
@@ -20,9 +20,9 @@ endif
 # Quando for necessário reiniciar a aplicação sem derrubar todos os containers
 restart:
 ifeq ($(container),)
-	echo "Para container padrão crud-market-stock"
+	echo "Para container padrão generic-stock-crud"
 	sudo rm tmp/pids/server.pid
-	sudo docker restart crud-market-stock
+	sudo docker restart generic-stock-crud
 	sudo docker-compose up
 else
 	echo "Para container customizado"

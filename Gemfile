@@ -81,3 +81,4 @@ gem 'populator'
 
 # https://github.com/stympy/faker
 gem 'faker'
+gem "devise", "~> 4.9"

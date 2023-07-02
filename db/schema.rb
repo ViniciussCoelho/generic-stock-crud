@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_170438) do
+ActiveRecord::Schema.define(version: 2022_09_24_135746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,23 +27,11 @@ ActiveRecord::Schema.define(version: 2022_09_25_170438) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "quantity"
-    t.decimal "total"
-    t.date "order_date"
-    t.bigint "product_id"
-    t.bigint "supplier_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_orders_on_product_id"
-    t.index ["supplier_id"], name: "index_orders_on_supplier_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.integer "quantity"
     t.date "expiration_date"
-    t.decimal "price"
+    t.decimal "price", precision: 10, scale: 2
     t.bigint "category_id"
     t.bigint "brand_id"
     t.datetime "created_at", null: false
@@ -52,16 +40,6 @@ ActiveRecord::Schema.define(version: 2022_09_25_170438) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "suppliers", force: :cascade do |t|
-    t.string "name", limit: 30, null: false
-    t.string "city", limit: 50, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "phone"
-  end
-
-  add_foreign_key "orders", "products"
-  add_foreign_key "orders", "suppliers"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
 end

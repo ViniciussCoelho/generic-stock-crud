@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get '/index' => 'dashboard#index'
-  resources :orders
   resources :products
-  resources :suppliers
   resources :categories
   resources :brands
 

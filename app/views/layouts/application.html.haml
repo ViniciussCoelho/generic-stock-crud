@@ -13,40 +13,39 @@
     .general-container
       .crud-nav
         .logo
-          = image_tag("logo.svg")
+          = image_tag(organization_logo, class: "logo-image")
         #navbarSupportedContent.navbar-collapse
           %ul.navbar-nav.mr-auto
             %li.nav-item
-              %a.nav-link{:href => "/products", :class => current_page?("/products") ? "active" : ""}
+              %a.nav-link{:href => "/products", :class => current_page?("/products") ? "active" : "", style: current_page?("/products") ? "background-color: #{organization_color};" : ""}
+                = image_tag("products.svg", class: "menu-icon")
                 %span Produtos
             %li.nav-item
-              %a.nav-link{:href => "/categories", :class => current_page?("/categories") ? "active" : ""}
+              %a.nav-link{:href => "/categories", :class => current_page?("/categories") ? "active" : "", style: current_page?("/categories") ? "background-color: #{organization_color};" : ""}
+                = image_tag("categories.svg", class: "menu-icon")
                 %span Categorias
             %li.nav-item
-              %a.nav-link{:href => "/brands", :class => current_page?("/brands") ? "active" : ""}
+              %a.nav-link{:href => "/brands", :class => current_page?("/brands") ? "active" : "", style: current_page?("/brands") ? "background-color: #{organization_color};" : ""}
+                = image_tag("brands.svg", class: "menu-icon")
                 %span Marcas
       .general-content
         .page-header
           .search
           .admin
-            = image_tag "user-default.webp", class: "user-icon"
-            Admin
-            = link_to image_tag("gear.svg", class: "gear-icon"), href: "/admin"
-            -# = link_to "Sair", destroy_user_session_path, method: :delete, class: "logout"
+            = link_to image_tag("gear.svg", class: "gear-icon"), edit_registration_path(current_admin)
+            = link_to image_tag("exit.svg", class: "exit-icon"), destroy_admin_session_path, method: :delete
 
-        .container
+        - if current_page?("/admins/edit")
           - flash.each do |type, msg|
             .alert.alert-info
               = msg
           = yield
+        - else
+          .container
+            - flash.each do |type, msg|
+              .alert.alert-info
+                = msg
+            = yield
   - else
     = yield
   = render 'ajax_modal_rails/frame'
-
-:javascript
-  $(document).ready(function () {
-      $('ul.navbar-nav > li').click(function (e) {
-          $('ul.navbar-nav > li').removeClass('nav-active');
-          $(this).addClass('nav-active');
-      });
-  });

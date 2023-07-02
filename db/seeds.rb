@@ -1,25 +1,25 @@
-Category.create(name: 'Tecnologia')
-Category.create(name: 'Bebidas')
-Category.create(name: 'Roupas')
-Category.create(name: 'Alimentos')
+require 'faker'
 
-Brand.create(name: 'Apple')
-Brand.create(name: 'Samsung')
-Brand.create(name: 'LG')
-Brand.create(name: 'Sony')
-Brand.create(name: 'Genérico')
+Faker::Config.locale = 'pt-BR'
 
-Supplier.create(name: 'Fornecedor 1', city: 'São Paulo', phone: '11 99999-9999')
-Supplier.create(name: 'Fornecedor 2', city: 'Rio de Janeiro', phone: '21 99999-9999')
-Supplier.create(name: 'Fornecedor 3', city: 'Belo Horizonte', phone: '31 99999-9999')
-Supplier.create(name: 'Fornecedor 4', city: 'Curitiba', phone: '41 99999-9999')
+# Create Categories
+20.times do
+  Category.create(name: Faker::Commerce.unique.department)
+end
 
-Product.create(name: 'iPhone 6', price: 2000, category_id: 1, brand_id: 1, quantity: 10, expiration_date: '2021-12-31')
-Product.create(name: 'iPhone 6 Plus', price: 2500, category_id: 1, brand_id: 1, quantity: 10, expiration_date: '2022-9-25')
-Product.create(name: 'Maçã', price: 2, category_id: 4, brand_id: 5, quantity: 100, expiration_date: '2022-8-12')
-Product.create(name: 'Coca-Cola', price: 3, category_id: 2, brand_id: 5, quantity: 100, expiration_date: '2022-8-12')
+# Create Brands
+10.times do
+  Brand.create(name: Faker::Commerce.unique.brand)
+end
 
-Order.create(supplier_id: 1, product_id: 1, quantity: 10, total: 2000, order_date: '2022-9-25')
-Order.create(supplier_id: 2, product_id: 2, quantity: 10, total: 2500, order_date: '2022-9-21')
-Order.create(supplier_id: 3, product_id: 3, quantity: 100, total: 200, order_date: '2021-9-14')
-Order.create(supplier_id: 4, product_id: 4, quantity: 100, total: 300, order_date: '2021-9-02')
+# Create Products
+50.times do
+  Product.create(
+    name: Faker::Commerce.unique.product_name,
+    price: Faker::Commerce.price(range: 100..500),
+    category_id: Category.pluck(:id).sample,
+    brand_id: Brand.pluck(:id).sample,
+    quantity: Faker::Number.between(from: 1, to: 100),
+    expiration_date: Faker::Date.between(from: '2022-01-01', to: '2023-12-31')
+  )
+end

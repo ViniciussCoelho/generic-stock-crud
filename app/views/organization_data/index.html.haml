@@ -1,0 +1,19 @@
+%h1 Listing organization_data
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @organization_data.each do |organization_datum|
+      %tr
+        %td= link_to 'Show', organization_datum
+        %td= link_to 'Edit', edit_organization_datum_path(organization_datum)
+        %td= link_to 'Destroy', organization_datum, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Organization datum', new_organization_datum_path

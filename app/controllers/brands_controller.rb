@@ -5,6 +5,7 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+    @brands = @brands.paginate(page: params[:page], per_page: 6).order('id DESC')
   end
 
   def show

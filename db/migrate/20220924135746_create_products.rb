@@ -1,7 +1,7 @@
 class CreateProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :products do |t|
-      t.string :name, null: false, limit: 50
+      t.string :name, null: false
       t.integer :quantity
       t.date :expiration_date
       t.decimal :price, precision: 10, scale: 2

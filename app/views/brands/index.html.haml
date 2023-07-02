@@ -3,18 +3,18 @@
     %h1.table-title Marcas
     .table-actions
       = link_to 'Adicionar marca', new_brand_path, class: "new-button btn btn-success text-light", data: {loads_in_ajax_modal: true}
-  %table.table-hover.table-radius.table-responsive.table-striped{style: "border: 2px solid #F67F19"}
-    %thead.table-header
-      %tr{style: "background-color: #F67F19;"}
-        %th.col-2 ID
-        %th.col-2 Nome
-        %th.col-1 Ações
-    %tbody
-      - @brands.each do |brand|
-        %tr
-          %td= brand.id
-          %td= brand.name  
-          %td 
-            .actions
-              = link_to 'Editar', edit_brand_path(brand), class: "btn btn-warning text-light", data: {loads_in_ajax_modal: true}
-              = link_to 'Apagar', brand, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger text-light"
+  .table-area
+    %table.table-hover.table-radius.table-responsive.table-striped{style: "border: 2px solid #{organization_color}"}
+      %thead.table-header
+        %tr{style: "background-color: #{organization_color};"}
+          %th.col-2 Nome
+          %th.col-1 Ações
+      %tbody
+        - @brands.each do |brand|
+          %tr
+            %td= brand.name  
+            %td 
+              .actions
+                = link_to 'Editar', edit_brand_path(brand), class: "btn btn-warning text-light", data: {loads_in_ajax_modal: true}
+                = link_to 'Apagar', brand, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger text-light"
+    = will_paginate @posts

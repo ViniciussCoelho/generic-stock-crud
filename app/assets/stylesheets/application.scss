@@ -38,13 +38,17 @@ body {
 }
 
 .crud-nav span {
-  margin-left: 1rem;
   font-size: 1rem;
+}
+
+.menu-icon {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.5rem;
 }
 
 .active {
   color: #FFFFFF !important;
-  background-color: #F67F19;
 }
 
 .logo {
@@ -77,24 +81,26 @@ body {
   background-color: #F0F0F0;
   border-radius: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.25rem 1rem;
+  padding: 1rem;
+  width: 7rem;
 }
 
-.user-icon {
-  width: 3.125rem;
-  border-radius: 50%;
-  margin-right: 1rem;
+.exit-icon {
+  width: 1.5rem;
 }
 
 .gear-icon {
   width: 1.5rem;
-  margin-left: 1rem;
 }
 
 .table-radius {
   border-radius: 0.5rem;
+}
+
+.table-header {
+  width: 100%;
 }
 
 .table-radius th, .table-radius td {
@@ -144,7 +150,6 @@ body {
 
 
 .login-button {
-  background-color: #F67F19;
   border-radius: 5px;
   border: none;
   color: #FFFFFF;
@@ -161,5 +166,94 @@ body {
 }
 
 .logo-login img {
-  width: 70%;
+  width: 14.6875rem;
+  height: 8.465625rem;
+  object-fit: scale-down;
 }
+
+.edit-organization {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.save-button {
+  border-radius: 5px;
+  border: none;
+  color: #FFFFFF;
+  padding: 0.25rem 1rem;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  margin-top: 5rem;
+}
+
+.color-field {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.input-edit {
+  width: 15rem
+}
+
+.logo-image {
+  width: 7.8125rem;
+  height: 4.25rem;
+  margin-bottom: 1rem;
+  object-fit: scale-down;
+}
+
+.table-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .pagination a, .pagination span {
+    padding: 0.2em 0.3em; }
+  .pagination .disabled {
+    color: #aaaaaa; }
+  .pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .pagination a {
+    text-decoration: none;
+    color: black; }
+    .pagination a:hover, .pagination a:focus {
+      text-decoration: underline; }

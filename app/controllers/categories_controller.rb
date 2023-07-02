@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @categories = @categories.paginate(page: params[:page], per_page: 6).order('id DESC')
   end
 
   def show

@@ -1,9 +1,9 @@
-.login-box{ style: "background-color: #F67F19;" }
+.login-box{ style: "background-color: #{organization_color};" }
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f|
     .logo-login
-      = image_tag("logo.svg")
+      = image_tag(organization_logo)
     .form-group
       = f.input :username, input_html: { class: 'form-control' }, label: "Usuário"
       = f.input :password, required: false, input_html: { class: 'form-control' }, label: "Senha"
     .actions
-      = f.button :submit, "Log in", class: "login-button"
+      = f.button :submit, "Fazer Login", class: "login-button", style: "background-color: #{organization_color}"

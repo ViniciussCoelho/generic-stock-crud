@@ -7,11 +7,27 @@ module ApplicationHelper
         end
     end
 
-    def organization_logo(org)
+    def organization_data
+        OrganizationDatum.first
+    end
+
+    def organization_logo
+        org = organization_data
+
         if org.logo.attached?
             org.logo
         else
-            "default.png"
+            "logo.svg"
+        end
+    end
+
+    def organization_color
+        org = organization_data
+
+        if org.color.present?
+            org.color
+        else
+            "#F67F19"
         end
     end
 end
